@@ -22,7 +22,7 @@ export default {
       {
         rel: "stylesheet",
         href:
-          "https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap"
+          "https://fonts.googleapis.com/css2?family=Raleway:wght@100;200&display=swap"
       }
     ]
   },
@@ -71,7 +71,7 @@ export default {
         light: {
           primary: "#195176",
           nav: "#DBEAF3",
-          texts: "#000099"
+          texts: "#666666"
         }
       }
     }

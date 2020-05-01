@@ -1,7 +1,7 @@
 <template>
-  <v-app class="app">
+  <v-app>
     <NavBar />
-    <v-content>
+    <v-content class="ml-5">
       <v-container>
         <nuxt />
       </v-container>
@@ -20,8 +20,4 @@ export default {
   }
 };
 </script>
-<style>
-.app {
-  font-family: "Montserrat", sans-serif;
-}
-</style>
+<style></style>
