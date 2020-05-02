@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <NavBar />
+    <NavBar></NavBar>
     <v-content class="ml-5">
       <v-container>
         <nuxt />

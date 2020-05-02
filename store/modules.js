@@ -1,101 +1,174 @@
 export const state = () => ({
-  icons: [{ img: require("../static/edit.png") }],
+  newModule: {},
+  editIcon: [{ img: require("../static/edit.png") }],
   modules: [
     {
-      image: require("../static/approval.png"),
-      title: "Approval",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/approval.png"),
+      name: "Approval",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/event.png"),
-      title: "Event",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/event.png"),
+      name: "Event",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/user.png"),
-      title: "User management",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/user.png"),
+      name: "User management",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/course.png"),
-      title: "Course",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/course.png"),
+      name: "Course",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/log.png"),
-      title: "Log",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/log.png"),
+      name: "Log",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/notification.png"),
-      title: "Notification",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/notification.png"),
+      name: "Notification",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/subject.png"),
-      title: "Subject",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/subject.png"),
+      name: "Subject",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/layout.png"),
-      title: "Layout",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/layout.png"),
+      name: "Layout",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/file.png"),
-      title: "File management",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/file.png"),
+      name: "File management",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/grading.png"),
-      title: "Grading",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/grading.png"),
+      name: "Grading",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/future.png"),
-      title: "FutureX Support",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/future.png"),
+      name: "FutureX Support",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/admission.png"),
-      title: "Admission",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/admission.png"),
+      name: "Admission",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/finance.png"),
-      title: "Finance",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/finance.png"),
+      name: "Finance",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/cbt.png"),
-      title: "CBT",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/cbt.png"),
+      name: "CBT",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     },
     {
-      image: require("../static/sms.png"),
-      title: "SMS",
-      text:
-        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed"
+      icon: require("../static/sms.png"),
+      name: "SMS",
+      summary:
+        "This is only brief introduction of what this mod-ule is about and may not give all necessary info needed",
+      dependencies: [],
+      description: "",
+      defaultModule: "No",
+      permissions: []
     }
   ]
 });
 
-// export const getters = {
-//   getModules: state => {
-//     return state.modules;
-//   }
-// };
+export const mutations = {
+  NEW_MODULE: (state, newModule) => {
+    state.newModule = newModule;
+  },
+  ADD_MODULE: (state, module) => {
+    state.modules.push(module);
+  }
+};
+
+export const actions = {
+  addModule: ({ commit }, module) => {
+    commit("ADD_MODULE", module);
+  },
+  newModule: ({ commit }, newModule) => {
+    commit("NEW_MODULE", newModule);
+  }
+};
