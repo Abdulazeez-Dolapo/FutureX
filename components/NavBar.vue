@@ -1,8 +1,19 @@
 <template>
   <div class="navbar">
-    <v-app-bar fixed app flat class="nav">
-      <v-toolbar-title v-text="title" />
+    <v-app-bar fixed app flat class="nav" height="73dp">
+      <!-- <v-toolbar-title v-text="title" /> -->
+      <v-btn text :min-height="home.height">
+        <v-img :src="home.icon" :height="home.height" contain></v-img>
+      </v-btn>
       <v-spacer />
+      <v-btn
+        v-for="(item, index) in items"
+        :key="index"
+        text
+        :min-height="item.height"
+      >
+        <v-img :src="item.icon" :height="item.height" contain></v-img>
+      </v-btn>
     </v-app-bar>
   </div>
 </template>
@@ -11,25 +22,21 @@
 export default {
   data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
+      home: { icon: require("../static/future.png"), height: "51" },
       items: [
         {
-          icon: "mdi-apps",
-          title: "Welcome",
-          to: "/"
+          icon: require("../static/cubes.png"),
+          height: "32"
         },
         {
-          icon: "mdi-chart-bubble",
-          title: "Inspire",
-          to: "/inspire"
+          icon: require("../static/notification.png"),
+          height: "32.82"
+        },
+        {
+          icon: require("../static/profile-pic.png"),
+          height: "54"
         }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: "Vuetify.js"
+      ]
     };
   }
 };
