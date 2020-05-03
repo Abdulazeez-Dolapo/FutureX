@@ -127,15 +127,15 @@ export default {
       items: ["Yes", "No"],
       nameRules: [
         value => !!value || "Name of Module is required",
-        // value =>
-        //   this.checkIfNameExists(value) ||
-        //   "Name already exists. Please pick another",
         value =>
           (value && value.length >= 3) ||
           "Name should not be less than 3 letters",
         value =>
           /[a-zA-Z][a-zA-Z ]+$/.test(value) ||
-          "Name should only contain letters"
+          "Name should only contain letters",
+        value =>
+          !this.checkIfModuleNameExists(value) ||
+          "Module name already exists. Please try another name"
       ],
       defaultModuleRules: [value => !!value || "This field is required"],
       summaryRules: [
@@ -157,9 +157,6 @@ export default {
     };
   },
   watch: {
-    name() {
-      console.log(this.checkIfNameExists(this.name));
-    },
     addAllPermissions() {
       if (this.addAllPermissions) {
         this.newModule.permissions = this.allPermissions;
@@ -184,14 +181,8 @@ export default {
       modules: state => state.modules.modules,
       currentModule: state => state.modules.newModule
     }),
-    rules() {
-      const rules = [];
-      if (this.name) {
-        const rule = value =>
-          this.checkIfNameExists(value) || "Name already exists";
-        rules.push(rule);
-      }
-      return rules;
+    name() {
+      return this.newModule.name;
     }
   },
   mounted() {
@@ -199,7 +190,7 @@ export default {
   },
   methods: {
     createModuleObject() {
-      if (this.currentModule) {
+      if (!!this.currentModule) {
         const newModule = Object.assign({}, this.currentModule);
         return newModule;
       }
@@ -214,12 +205,11 @@ export default {
       };
       return mod;
     },
-    checkIfNameExists(value) {
-      this.modules.forEach(mod => {
-        if (mod.name == value) {
-          return true;
-        }
-      });
+    checkIfModuleNameExists(value) {
+      const found = this.modules.find(
+        el => el.name.toLowerCase() == value.toLowerCase()
+      );
+      return !!found;
     },
     async next() {
       try {

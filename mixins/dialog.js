@@ -13,6 +13,7 @@ export const dialog = {
     },
     navigateAway() {
       this.$router.push({ name: "index" });
+      this.$store.dispatch("modules/newModule", null);
     }
   }
 };

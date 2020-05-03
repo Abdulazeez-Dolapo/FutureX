@@ -1,23 +1,23 @@
 export const state = () => ({
-  // newModule: "",
-  newModule: {
-    icon: "",
-    name: "New Module",
-    summary:
-      "This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed",
-    dependencies: ["Grading", "CBT", "FutureX Support"],
-    description:
-      "This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed.",
-    defaultModule: "No",
-    permissions: [
-      "Can register students1",
-      "Comment on student's performance3",
-      "Can send announcements5",
-      "Can register students2",
-      "Comment on student's performance4",
-      "Can send announcements6"
-    ]
-  },
+  newModule: null,
+  // newModule: {
+  //   icon: "",
+  //   name: "New Module",
+  //   summary:
+  //     "This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed",
+  //   dependencies: ["Grading", "CBT", "FutureX Support"],
+  //   description:
+  //     "This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed. This is only brief introduction of what this module is about and may not give all necessary info needed.",
+  //   defaultModule: "No",
+  //   permissions: [
+  //     "Can register students1",
+  //     "Comment on student's performance3",
+  //     "Can send announcements5",
+  //     "Can register students2",
+  //     "Comment on student's performance4",
+  //     "Can send announcements6"
+  //   ]
+  // },
   editIcon: [{ img: require("../static/edit.png") }],
   modules: [
     {
