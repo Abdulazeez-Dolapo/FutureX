@@ -1,6 +1,6 @@
 <template>
   <v-container id="card" row wrap>
-    <v-card class="d-inline-block pr-0 mb-0" width="471" height="123">
+    <v-card class="d-inline-block pr-0 mb-0" width="471" min-height="123">
       <v-row class="pa-0" id="card">
         <v-col cols="3">
           <v-img

@@ -2,39 +2,27 @@
   <v-container row wrap>
     <v-card
       nuxt
-      to="create-module"
-      class="d-inline-block mb-0"
+      to="module-create"
+      class="d-inline-block mb-0 pa-0"
       width="471"
       height="123"
     >
-      <v-row>
-        <v-col cols="12">
-          <!-- <v-btn height="60" class="mx-auto font-weight-black display-3"> -->
-          <v-icon x-large size="450" color="primary">
-            mdi-plus
-          </v-icon>
-          <!-- </v-btn> -->
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-card-actions
-          class="subtitle-1 primary--text font-weight-medium pt-5 mx-auto"
+      <div class="text-center">
+        <v-icon size="80" color="primary">
+          mdi-plus
+        </v-icon>
+        <span
+          class="subtitle-1 d-block primary--text mt-2 font-weight-medium text-capitalize"
         >
           Add Module
-        </v-card-actions>
-      </v-row>
+        </span>
+      </div>
     </v-card>
   </v-container>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      // image: require("../static/future.png")
-    };
-  }
-};
+export default {};
 </script>
 
 <style></style>

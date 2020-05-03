@@ -1,14 +1,19 @@
 <template>
-  <v-container>
-    <p class="headline font-weight-bold primary--text">
+  <v-container class="pl-12">
+    <p class="headline primary--text">
       <span class="font-weight-bold mr-1">Modules</span
       ><span class="font-weight-regular">Management</span>
     </p>
-    <v-row>
-      <v-col cols="4">
+    <v-row class="pl-3">
+      <v-col cols="4" class="pa-0 ma-0 mb-1">
         <CreateButton />
       </v-col>
-      <v-col v-for="(mod, index) in modules" :key="index" cols="4">
+      <v-col
+        class="pa-0 ma-0 mb-1"
+        v-for="(mod, index) in modules"
+        :key="index"
+        cols="4"
+      >
         <Module :moduleProperty="mod" />
       </v-col>
     </v-row>

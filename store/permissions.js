@@ -1,11 +1,5 @@
 export const state = () => ({
   permissions: [
-    // { name: "Can register students", id: 1 },
-    // { name: "Comment on student's performance", id: 2 },
-    // { name: "Can send announcements", id: 3 },
-    // { name: "Can register students", id: 4 },
-    // { name: "Comment on student's performance", id: 5 },
-    // { name: "Can send announcements", id: 6 },
     "Can register students1",
     "Can register students2",
     "Comment on student's performance3",
