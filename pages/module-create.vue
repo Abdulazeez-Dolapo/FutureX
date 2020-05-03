@@ -59,7 +59,7 @@
               :key="index"
             >
               <v-checkbox
-                class="pa-0 ma-0"
+                class="pa-0 ma-0 headline"
                 height="18"
                 v-model="newModule.permissions"
                 :value="permission"
@@ -158,6 +158,7 @@ export default {
   },
   watch: {
     addAllPermissions() {
+      // Set value of permissions depending on status of 'add all permissions'
       if (this.addAllPermissions) {
         this.newModule.permissions = this.allPermissions;
       } else {
@@ -170,6 +171,7 @@ export default {
       }
     },
     permissions() {
+      // Toggle the add all permissions checkbox
       if (this.permissions !== this.allPermissions) {
         this.addAllPermissions = false;
       }
@@ -189,6 +191,7 @@ export default {
     this.newModule = this.createModuleObject();
   },
   methods: {
+    // Create a fresh module object
     createModuleObject() {
       if (!!this.currentModule) {
         const newModule = Object.assign({}, this.currentModule);
@@ -205,12 +208,14 @@ export default {
       };
       return mod;
     },
+    // Check if module name already exists in the store/database
     checkIfModuleNameExists(value) {
       const found = this.modules.find(
-        el => el.name.toLowerCase() == value.toLowerCase()
+        element => element.name.toLowerCase() == value.toLowerCase()
       );
       return !!found;
     },
+    // Continue the module creation process
     async next() {
       try {
         if (this.$refs.createModuleForm.validate()) {

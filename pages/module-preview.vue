@@ -6,34 +6,34 @@
     <v-row>
       <v-col cols="5" class="pl-6 pt-0 mt-2">
         <v-row>
-          <p class="headline font-weight-medium primary--text">
+          <p class="headline font-weight-black primary--text">
             Summary
           </p>
           <div class="title font-weight-regular mb-4">
-            {{ newModule.summary }}
+            {{ currentModule.summary }}
           </div>
         </v-row>
 
         <v-row>
-          <p class="headline font-weight-medium primary--text">
+          <p class="headline font-weight-black primary--text">
             Description
           </p>
           <div class="title font-weight-regular">
-            {{ newModule.description }}
+            {{ currentModule.description }}
           </div>
         </v-row>
       </v-col>
       <v-col cols="1"></v-col>
       <v-col cols="3">
         <v-row>
-          <p class="headline font-weight-medium primary--text">
+          <p class="headline font-weight-black primary--text">
             Permissions
           </p>
         </v-row>
         <v-row>
           <div class="d-block title font-weight-regular mb-5">
             <div
-              v-for="(permission, index) in newModule.permissions"
+              v-for="(permission, index) in currentModule.permissions"
               :key="index"
             >
               {{ permission }}
@@ -42,14 +42,14 @@
         </v-row>
 
         <v-row>
-          <p class="headline font-weight-medium primary--text">
+          <p class="headline font-weight-black primary--text">
             Dependent Modules
           </p>
         </v-row>
         <v-row>
           <div class="d-block title font-weight-regular">
             <div
-              v-for="(dependency, index) in newModule.dependencies"
+              v-for="(dependency, index) in currentModule.dependencies"
               :key="index"
             >
               {{ dependency }}
@@ -60,10 +60,12 @@
       <v-col cols="3">
         <v-file-input
           prepend-icon=""
+          :v-model="icon"
           height="225"
           width="278"
           prepend-inner-icon="mdi-camera-plus-outline"
           outlined
+          label="upload icon"
         >
         </v-file-input>
         <div>
@@ -111,6 +113,16 @@
       :continueCreate="continueCreate"
       :dialog="dialog"
     />
+
+    <!-- notification snackbar -->
+    <div class="text-center ma-2">
+      <v-snackbar v-model="snackbar">
+        {{ text }}
+        <v-btn color="pink" text @click="snackbar = false">
+          Close
+        </v-btn>
+      </v-snackbar>
+    </div>
   </v-container>
 </template>
 
@@ -125,19 +137,25 @@ export default {
   mixins: [dialog],
   computed: {
     ...mapState({
-      newModule: state => state.modules.newModule
+      currentModule: state => state.modules.newModule
     })
   },
   data() {
     return {
-      icon: ""
+      icon: [],
+      snackbar: false,
+      text: "You have successfully created a new module"
     };
   },
   methods: {
+    // Conclude the module creation process
     async done() {
       try {
-        await this.$store.dispatch("modules/addModule", this.newModule);
+        const mod = Object.assign({}, this.currentModule);
+        mod.icon = this.icon[0];
+        await this.$store.dispatch("modules/addModule", mod);
         await this.$store.dispatch("modules/newModule", null);
+        this.snackbar = true;
         this.$router.push({ name: "index" });
       } catch (error) {
         console.log(error);
