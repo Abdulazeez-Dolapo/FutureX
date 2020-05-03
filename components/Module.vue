@@ -1,10 +1,10 @@
 <template>
   <v-container id="card" row wrap>
-    <v-card class="d-inline-block pr-0 mb-0" width="471" height="123">
+    <v-card class="d-inline-block pr-0 mb-0" width="471" min-height="123">
       <v-row class="pa-0" id="card">
         <v-col cols="3">
           <v-img
-            :src="moduleProperty.image"
+            :src="moduleProperty.icon"
             contain
             height="71"
             width="98"
@@ -15,11 +15,11 @@
         <v-col cols="8" class="text-left pa-0 pt-1">
           <v-card-title class="pa-0">
             <span class="primary--text font-weight-regular title">
-              {{ moduleProperty.title }}
+              {{ moduleProperty.name }}
             </span>
           </v-card-title>
           <v-card-text class="texts--text pa-0 body-2 font-weight-regular">
-            {{ moduleProperty.text }}
+            {{ moduleProperty.summary }}
           </v-card-text>
           <v-card-actions
             class="primary--text pa-0 subtitle-2 font-weight-medium"
@@ -46,7 +46,7 @@ export default {
   },
   computed: {
     ...mapState({
-      icons: state => state.modules.icons
+      icons: state => state.modules.editIcon
     })
   }
 };
