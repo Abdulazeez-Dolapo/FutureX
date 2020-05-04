@@ -58,25 +58,18 @@
         </v-row>
       </v-col>
       <v-col cols="3">
-        <v-file-input
-          prepend-icon=""
-          :v-model="icon"
-          height="225"
-          width="278"
-          prepend-inner-icon="mdi-camera-plus-outline"
-          outlined
-          label="upload icon"
-        >
-        </v-file-input>
-        <div>
-          <span class="d-block mb-2">
-            <v-icon color="primary" size="120">
-              mdi-camera-plus-outline
-            </v-icon>
-          </span>
-          <span class="primary--text headline font-weight-medium">
-            Upload icon
-          </span>
+        <div class="upload d-flex justify-center align-center">
+          <div>
+            <div class="d-flex justify-center">
+              <v-icon color="primary" size="120">
+                mdi-camera-plus-outline
+              </v-icon>
+            </div>
+            <input type="file" @change="upload" ref="pic" />
+            <div class="primary--text headline font-weight-black">
+              Upload icon
+            </div>
+          </div>
         </div>
       </v-col>
     </v-row>
@@ -113,16 +106,6 @@
       :continueCreate="continueCreate"
       :dialog="dialog"
     />
-
-    <!-- notification snackbar -->
-    <div class="text-center ma-2">
-      <v-snackbar v-model="snackbar">
-        {{ text }}
-        <v-btn color="pink" text @click="snackbar = false">
-          Close
-        </v-btn>
-      </v-snackbar>
-    </div>
   </v-container>
 </template>
 
@@ -137,25 +120,30 @@ export default {
   mixins: [dialog],
   computed: {
     ...mapState({
-      currentModule: state => state.modules.newModule
+      currentModule: state => state.modules.newModule,
+      snackbar: state => state.snackbar.snackbar
     })
   },
   data() {
     return {
-      icon: [],
-      snackbar: false,
-      text: "You have successfully created a new module"
+      icon: ""
     };
   },
   methods: {
+    upload() {
+      this.icon = this.$refs.pic.files[0];
+    },
     // Conclude the module creation process
     async done() {
       try {
         const mod = Object.assign({}, this.currentModule);
-        mod.icon = this.icon[0];
+        mod.icon = this.icon;
         await this.$store.dispatch("modules/addModule", mod);
         await this.$store.dispatch("modules/newModule", null);
-        this.snackbar = true;
+        await this.$store.dispatch(
+          "snackbar/open",
+          "You have successfully created a new module"
+        );
         this.$router.push({ name: "index" });
       } catch (error) {
         console.log(error);
@@ -165,4 +153,22 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.upload {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  border: 2px solid gray;
+  width: 278px;
+  height: 225px;
+}
+
+.upload input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>

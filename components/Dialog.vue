@@ -2,7 +2,7 @@
   <v-dialog
     v-model="dialog"
     persistent
-    max-width="290"
+    max-width="300"
     justify-content="center"
   >
     <v-card>
