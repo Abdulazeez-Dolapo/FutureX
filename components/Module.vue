@@ -14,15 +14,15 @@
         </v-col>
         <v-col cols="8" class="text-left pa-0 pt-1">
           <v-card-title class="pa-0">
-            <span class="primary--text font-weight-regular title">
+            <span class="primary--text font-weight-black title">
               {{ moduleProperty.name }}
             </span>
           </v-card-title>
-          <v-card-text class="texts--text pa-0 body-2 font-weight-regular">
+          <v-card-text class="texts--text pa-0 body-2 font-weight-medium">
             {{ moduleProperty.summary }}
           </v-card-text>
           <v-card-actions
-            class="primary--text pa-0 subtitle-2 font-weight-medium"
+            class="primary--text pa-0 subtitle-2 font-weight-black"
           >
             See more...
           </v-card-actions>
@@ -52,8 +52,4 @@ export default {
 };
 </script>
 
-<style>
-#card {
-  font-family: "Raleway", sans-serif;
-}
-</style>
+<style></style>

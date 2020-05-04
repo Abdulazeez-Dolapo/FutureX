@@ -1,8 +1,8 @@
 <template>
   <v-container class="pl-12">
     <p class="headline primary--text">
-      <span class="font-weight-bold mr-1">Modules</span
-      ><span class="font-weight-regular">Management</span>
+      <span class="font-weight-black mr-1">Modules</span
+      ><span class="font-weight-medium">Management</span>
     </p>
     <v-row class="pl-3">
       <v-col cols="4" class="pa-0 ma-0 mb-1">

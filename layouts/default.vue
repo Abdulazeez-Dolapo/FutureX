@@ -12,6 +12,7 @@
 <script>
 import NavBar from "~/components/NavBar";
 export default {
+  name: "Default",
   components: {
     NavBar
   },
@@ -20,4 +21,8 @@ export default {
   }
 };
 </script>
-<style></style>
+<style lang="scss">
+.application {
+  font-family: "Raleway", sans-serif;
+}
+</style>

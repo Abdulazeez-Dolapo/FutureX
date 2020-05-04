@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <p class="headline ml-8 primary--text">
-      <span class="font-weight-regular">Select</span>
-      <span class="font-weight-bold mr-1">Dependent Modules</span>
+      <span class="font-weight-medium">Select</span>
+      <span class="font-weight-black mr-1">Dependent Modules</span>
     </p>
     <v-row>
       <v-col
@@ -80,6 +80,7 @@ export default {
     };
   },
   methods: {
+    // Set value of dependencies to the last selected ones in case the back button is clicked
     currentDependency() {
       let arr;
       if (this.currentModule) {
@@ -89,6 +90,7 @@ export default {
       }
       return arr;
     },
+    // Continue the module creation process
     async next() {
       try {
         const newModule = Object.assign({}, this.currentModule);

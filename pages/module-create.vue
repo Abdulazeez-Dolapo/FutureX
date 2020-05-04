@@ -59,7 +59,7 @@
               :key="index"
             >
               <v-checkbox
-                class="pa-0 ma-0"
+                class="pa-0 ma-0 headline"
                 height="18"
                 v-model="newModule.permissions"
                 :value="permission"
@@ -127,15 +127,15 @@ export default {
       items: ["Yes", "No"],
       nameRules: [
         value => !!value || "Name of Module is required",
-        // value =>
-        //   this.checkIfNameExists(value) ||
-        //   "Name already exists. Please pick another",
         value =>
           (value && value.length >= 3) ||
           "Name should not be less than 3 letters",
         value =>
           /[a-zA-Z][a-zA-Z ]+$/.test(value) ||
-          "Name should only contain letters"
+          "Name should only contain letters",
+        value =>
+          !this.checkIfModuleNameExists(value) ||
+          "Module name already exists. Please try another name"
       ],
       defaultModuleRules: [value => !!value || "This field is required"],
       summaryRules: [
@@ -157,10 +157,8 @@ export default {
     };
   },
   watch: {
-    name() {
-      console.log(this.checkIfNameExists(this.name));
-    },
     addAllPermissions() {
+      // Set value of permissions depending on status of 'add all permissions'
       if (this.addAllPermissions) {
         this.newModule.permissions = this.allPermissions;
       } else {
@@ -173,6 +171,7 @@ export default {
       }
     },
     permissions() {
+      // Toggle the add all permissions checkbox
       if (this.permissions !== this.allPermissions) {
         this.addAllPermissions = false;
       }
@@ -184,22 +183,17 @@ export default {
       modules: state => state.modules.modules,
       currentModule: state => state.modules.newModule
     }),
-    rules() {
-      const rules = [];
-      if (this.name) {
-        const rule = value =>
-          this.checkIfNameExists(value) || "Name already exists";
-        rules.push(rule);
-      }
-      return rules;
+    name() {
+      return this.newModule.name;
     }
   },
   mounted() {
     this.newModule = this.createModuleObject();
   },
   methods: {
+    // Create a fresh module object
     createModuleObject() {
-      if (this.currentModule) {
+      if (!!this.currentModule) {
         const newModule = Object.assign({}, this.currentModule);
         return newModule;
       }
@@ -214,13 +208,14 @@ export default {
       };
       return mod;
     },
-    checkIfNameExists(value) {
-      this.modules.forEach(mod => {
-        if (mod.name == value) {
-          return true;
-        }
-      });
+    // Check if module name already exists in the store/database
+    checkIfModuleNameExists(value) {
+      const found = this.modules.find(
+        element => element.name.toLowerCase() == value.toLowerCase()
+      );
+      return !!found;
     },
+    // Continue the module creation process
     async next() {
       try {
         if (this.$refs.createModuleForm.validate()) {

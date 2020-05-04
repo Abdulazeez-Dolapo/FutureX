@@ -2,3 +2,27 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+$body-font-family: Raleway, sans-serif;
+
+.v-application {
+  .display-1,
+  .display-2,
+  .display-3,
+  .display-4,
+  .headline,
+  .title,
+  .subtitle-1,
+  .subtitle-2,
+  .body-1,
+  .body-2,
+  .caption,
+  .overline {
+    font-family: $body-font-family !important;
+  }
+}
+
+.v-input--selection-controls {
+  .v-label {
+    font-size: 22px;
+  }
+}

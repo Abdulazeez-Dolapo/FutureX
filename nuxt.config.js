@@ -22,7 +22,7 @@ export default {
       {
         rel: "stylesheet",
         href:
-          "https://fonts.googleapis.com/css2?family=Raleway:wght@100;200&display=swap"
+          "https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap"
       }
     ]
   },
@@ -84,5 +84,8 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  generate: {
+    fallback: true
   }
 };
