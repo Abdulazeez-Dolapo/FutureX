@@ -11,7 +11,7 @@
         @submit.prevent="next"
       >
         <v-row>
-          <v-col cols="4" class="mx-8 pa-0 pr-12">
+          <v-col sm="12" md="4" class="mx-8 pa-0 pr-12">
             <v-text-field
               v-model.trim="newModule.name"
               required
@@ -44,7 +44,7 @@
             >
             </v-textarea>
           </v-col>
-          <v-col cols="7" class="pa-0 pl-12 ma-0">
+          <v-col sm="12" md="7" class="pa-0 pl-12 ma-0">
             <v-checkbox
               class="pa-0 ma-0 ml-3 "
               height="18"
@@ -53,7 +53,8 @@
             >
             </v-checkbox>
             <v-col
-              cols="6"
+              sm="12"
+              md="6"
               class="d-inline-block py-0"
               v-for="(permission, index) in allPermissions"
               :key="index"
@@ -89,7 +90,6 @@
           <v-btn
             :disabled="!formValidity"
             type="submit"
-            class="ml-6"
             color="primary"
             width="451"
             height="53"

@@ -4,7 +4,7 @@
       Layout
     </p>
     <v-row>
-      <v-col cols="5" class="pl-6 pt-0 mt-2">
+      <v-col sm="12" md="5" class="pl-6 pt-0 mt-2">
         <v-row>
           <p class="headline font-weight-black primary--text">
             Summary
@@ -24,7 +24,7 @@
         </v-row>
       </v-col>
       <v-col cols="1"></v-col>
-      <v-col cols="3">
+      <v-col sm="12" md="3">
         <v-row>
           <p class="headline font-weight-black primary--text">
             Permissions
@@ -60,7 +60,7 @@
       <v-col cols="3">
         <div class="upload d-flex justify-center align-center">
           <div>
-            <div class="d-flex justify-center">
+            <div class="d-flex justify-center mb-6">
               <v-icon color="primary" size="120">
                 mdi-camera-plus-outline
               </v-icon>
