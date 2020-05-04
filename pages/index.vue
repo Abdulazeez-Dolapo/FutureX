@@ -5,14 +5,15 @@
       ><span class="font-weight-medium">Management</span>
     </p>
     <v-row class="pl-3">
-      <v-col cols="4" class="pa-0 ma-0 mb-1">
+      <v-col md="4" sm="6" class="pa-0 ma-0 mb-1">
         <CreateButton />
       </v-col>
       <v-col
         class="pa-0 ma-0 mb-1"
         v-for="(mod, index) in modules"
         :key="index"
-        cols="4"
+        md="4"
+        sm="6"
       >
         <Module :moduleProperty="mod" />
       </v-col>

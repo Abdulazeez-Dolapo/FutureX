@@ -8,7 +8,8 @@
       <v-col
         v-for="(mod, index) in modules"
         :key="index"
-        cols="4"
+        md="4"
+        sm="6"
         class="pa-0 ma-0 mt-2"
       >
         <v-row class="pa-0 ma-0">
